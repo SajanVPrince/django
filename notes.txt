@@ -1,0 +1,81 @@
+Django 
+
+* it is a highlevel python frame work
+* to relate web frames
+* M V T architecture is used in django framework's working
+M:- Model (database)
+V:- View (request/response)
+T:- Template (Folder)HTML files
+
+* Admin interface
+
+* O R M (Obeject Relational Mapping)
+    CRUD(Create,Read,Update,Delete)Method is used
+
+* Built in authentication
+
+* Forms(User def forms),(Model forms)
+
+*Security
+---------
+
+* Blocks SQLinjuctions in django
+
+# CSRF (cross site request forgery)
+
+# xss (cross site scripting)
+
+Work flow
+---------
+                                                <-> Model
+User <-----> Django <------> urls <-------> view -
+                                                <-> Template
+
+# Virtual enviornment(venv)
+
+To create an venv 
+
+in linux
+--------
+
+python3 -m venv (envname)
+
+in windows
+----------
+
+python -m venv (envname)
+
+#pip( package installer for python)
+
+Activation step of an enviornment
+---------------------------------
+
+in linux
+--------
+
+sourse/env/bin/activate
+
+in windows
+----------
+
+env\Scripts\activate
+
+install django to the enviornment
+
+pip install django
+
+
+project creation
+----------------
+
+django-admin startproject (project_name)
+
+to run server
+
+in linux 
+
+python3 manage.py runserver
+
+in windows 
+
+py manage.py runserver
