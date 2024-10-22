@@ -79,3 +79,7 @@ python3 manage.py runserver
 in windows 
 
 py manage.py runserver
+
+to start an app in project 
+
+py manage.py startapp app_name
