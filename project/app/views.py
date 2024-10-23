@@ -77,3 +77,7 @@ def q6(request,a):
             ui=a-200
             us=ui*10+500
             return HttpResponse(us)
+
+def dem(req):
+    a="hello and welcome"
+    return render(req,'demo.html',{'data':a})
