@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
+    <style>
+        td,th{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello</h1>
-    <h2>{{data}}</h2>
+    <table style="border:1px solid black;width: 400px;">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    {% for i in data %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <p>end loop</p>
 </body>
 </html>

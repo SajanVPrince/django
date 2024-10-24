@@ -10,5 +10,9 @@ urlpatterns = [
     path('q4/<int:a>',views.q4),
     path('q5/<int:a>',views.q5),
     path('q6/<int:a>',views.q6),
-    path('demo',views.dem)
+    path('demo',views.dem),
+    path('disp',views.disp),
+    path('add',views.add),
+
+
 ]
