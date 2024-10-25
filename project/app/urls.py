@@ -13,6 +13,7 @@ urlpatterns = [
     path('demo',views.dem),
     path('disp',views.disp),
     path('add',views.add),
-
+    path('edit_usr/<id>',views.edit_usr),
+    path('dlt_usr/<id>',views.dlt_usr),
 
 ]

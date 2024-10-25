@@ -82,7 +82,7 @@ def dem(req):
     a=[{'name':'Sajan','age':22},{'name':'amal','age':22},{'name':'Arun','age':22}]
     return render(req,'demo.html',{'data':a})
 
-a=[{'id':20,'name':'Sajan','age':22,'email':'s@'}]
+a=[{'id':'20','name':'Sajan','age':22,'email':'s@'}]
 
 def disp(req):
     return render(req,'user_reg.html',{'users':a})
@@ -97,3 +97,26 @@ def add(req):
         return redirect(disp)
     else:
         return redirect(disp)
+    
+def edit_usr(req,id):
+    user=''
+    for i in a:
+        if i['id']==id:
+            user=i
+    if req.method=='POST':
+        id=req.POST['id']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        user['id']=id
+        user['name']=name
+        user['age']=age
+        user['email']=email
+        return redirect(disp)
+    return render (req,'edit_usr.html',{'user':user})
+
+def dlt_usr(req,id):
+    for i in a:
+        if i['id']==id:
+            a.remove(i)
+    return redirect(disp)

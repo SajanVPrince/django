@@ -20,6 +20,9 @@
         .t1,.td1,.th1{
             border: 1px solid black;
         }
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +67,9 @@
             <td class="td1">{{i.name}}</td>
             <td class="td1">{{i.age}}</td>
             <td class="td1">{{i.email}}</td>
+            <td><a href="edit_usr/{{i.id}}">Edit</a></td>
+            <td><a href="dlt_usr/{{i.id}}">Delete</a></td>
+
         </tr>
         {% endfor %}
     </table>
