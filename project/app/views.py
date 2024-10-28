@@ -120,3 +120,6 @@ def dlt_usr(req,id):
         if i['id']==id:
             a.remove(i)
     return redirect(disp)
+
+def index(req):
+    return render(req,'index.html')
