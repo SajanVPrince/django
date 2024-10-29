@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from .models import *
 
 # Create your views here.
 def demo(request):
@@ -123,3 +124,7 @@ def dlt_usr(req,id):
 
 def index(req):
     return render(req,'index.html')
+
+def disp_std(req):
+    data=Student.objects.all()
+    return render(req,'disp_std.html',{'std':data})
