@@ -17,6 +17,7 @@ urlpatterns = [
     path('dlt_usr/<id>',views.dlt_usr),
     path('',views.index),
     path('dispstd',views.disp_std),
-
-
+    path('addstd',views.add_std),
+    path('editstd/<id>',views.edt_std),
+    path('dltstd/<id>',views.dlt_std),
 ]

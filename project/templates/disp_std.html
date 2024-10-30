@@ -13,6 +13,13 @@
     text-align: center;
     width: 500px;
     }
+    a{
+        text-decoration: none;
+        color: rgb(236, 39, 39);
+    }
+    a:hover{
+        color: brown;
+    }
   </style>
 </head>
 <body>
@@ -30,7 +37,8 @@
             <td class="td1">{{i.name}}</td>
             <td class="td1">{{i.age}}</td>
             <td class="td1">{{i.email}}</td>
-
+            <td><a href="editstd/{{i.pk}}">Edit</a></td>
+            <td><a href="dltstd/{{i.pk}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
