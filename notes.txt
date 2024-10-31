@@ -61,6 +61,7 @@ in windows
 env\Scripts\activate
 
 install django to the enviornment
+---------------------------------
 
 pip install django
 
@@ -70,16 +71,63 @@ project creation
 
 django-admin startproject (project_name)
 
+app creation
+------------
+
+py manage.py startapp (app_name)
+
+
+to make migration to database
+-----------------------------
+
+py manage.py makemigrations
+
+***step 2***
+
+py manage.py migrate
+
 to run server
+-------------
 
 in linux 
+--------
 
 python3 manage.py runserver
 
 in windows 
+----------
 
 py manage.py runserver
 
 to start an app in project 
+---------------------------
 
 py manage.py startapp app_name
+
+to create a superuser to the auth user(db)
+------------------------------------------
+
+py manage.py createsuperuser
+
+****************************************
+
+to connect url of main project to the url of app include is used
+
+from django.urls import path,***include
+
+urlpatterns =[
+    path('admin/', admin.site.urls),
+    ***path('',include("app.urls")),
+]
+
+*******************************************
+
+to connect static files to settings
+-----------------------------------
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'))
+
+to connect Template files to settings
+-------------------------------------
+
+DIRS = (os.path.join(BASE_DIR,'template'))
