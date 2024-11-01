@@ -8,6 +8,8 @@ urlpatterns = [
 #------------------Shop------------------
 
     path('shp_home',views.shp_home),
+    path('add_prod',views.add_prod),
+
 
 
 ]
