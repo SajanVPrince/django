@@ -131,3 +131,35 @@ to connect Template files to settings
 -------------------------------------
 
 DIRS = (os.path.join(BASE_DIR,'template'))
+
+*********to create a model/table use models.py by using class and inherite it with (models.Model)
+
+*********and call it in admin.py by using
+
+from .models import *
+
+admin.site.register(model_name)
+
+to connecct media to settings
+-----------------------------
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media)
+
+
+***************************
+
+if we are using a differnt system the images or files path may change to control this error mention media in 
+package urls
+
+*****************************
+
+calling these items at project_file/urls
+
+from django.conf import settings
+from django.conf.urls.statics import static
+
+and set a condition
+
+if settings.DEBUG:
+    urlspatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
