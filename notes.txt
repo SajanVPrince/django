@@ -31,6 +31,12 @@ Work flow
 User <-----> Django <------> urls <-------> view -
                                                 <-> Template
 
+
+
+-------------------------PROJECT STARTING--------------------------
+
+
+
 # Virtual enviornment(venv)
 
 To create an venv 
@@ -111,6 +117,8 @@ py manage.py createsuperuser
 
 ****************************************
 
+---------------------------URLS---------------------------
+
 to connect url of main project to the url of app include is used
 
 from django.urls import path,***include
@@ -122,6 +130,8 @@ urlpatterns =[
 
 *******************************************
 
+------------------------TEMPLATE/STATIC-----------------------------
+
 to connect static files to settings
 -----------------------------------
 
@@ -132,6 +142,10 @@ to connect Template files to settings
 
 DIRS = (os.path.join(BASE_DIR,'template'))
 
+
+---------------------------------------MODELS--------------------------------
+
+
 *********to create a model/table use models.py by using class and inherite it with (models.Model)
 
 *********and call it in admin.py by using
@@ -139,6 +153,10 @@ DIRS = (os.path.join(BASE_DIR,'template'))
 from .models import *
 
 admin.site.register(model_name)
+
+
+-------------------------------MEDIA---------------------------
+
 
 to connecct media to settings
 -----------------------------
@@ -163,3 +181,22 @@ and set a condition
 
 if settings.DEBUG:
     urlspatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+****Add enctype to form to add images as files to database****
+
+
+--------------------------------SESSION--------------------------------------
+
+to set session in a website
+---------------------------
+
+req.session['key_word]=(username)
+
+to end session while clicking logout
+------------------------------------
+
+req.session.flush()
+
+checking procedure in other functions
+
+if 'key_word' in req.session:
