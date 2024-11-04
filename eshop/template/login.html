@@ -17,12 +17,10 @@
     </style>
 </head>
 <body>
-    <div class="card" style="width:400px">
-    <div class="card-body">
     <form action="" method="post">
         <h4>LOGIN</h4>
         {% csrf_token %}
-        <br><table>
+        <table>
             <tr>
                 <th>Username</th>
                 <td><input type="text" name="uname" placeholder="Username"></td>
@@ -36,7 +34,5 @@
             </tr>
         </table>
     </form>
-    </div>
-    </div>
 </body>
 </html>
