@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import *
+from django.contrib import messages
 from .models import *
 import os
 
@@ -15,7 +17,8 @@ def shp_login(req):
             req.session['eshop']=uname   #create session
             return redirect(shp_home)
         else:
-            return render(req,'login1.html')
+            messages.warning(req,"please check your username or password")
+            return render(req,'login.html')
     
     else:
         return render(req,'login.html')
@@ -76,3 +79,18 @@ def dlt_prd(req,pid):
     os.remove('media/'+og_path)
     data.delete()
     return redirect(shp_home)
+
+def register(req):
+    if req.method=='POST':
+        name=req.POST['name']
+        email=req.POST['email']
+        password=req.POST['password']
+        try:
+            data=User.objects.create_user(first_name=name,email=email,password=password,username=email)
+            data.save()
+            return redirect(shp_login)
+        except:
+            messages.warning(req,"email already exists enter a new email id")
+            return render(req,'user/register.html')
+    else:
+        return render(req,'user/register.html')

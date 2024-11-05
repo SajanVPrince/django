@@ -13,6 +13,9 @@ urlpatterns = [
     path('dlt_prd/<pid>',views.dlt_prd),
 
 
+#-------------------User----------------------
+
+    path('register',views.register),
 
 
 
