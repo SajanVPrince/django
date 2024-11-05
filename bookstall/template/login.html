@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3>Login</h3>
+
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Email" id="" name="uname">
+
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Password" id="" name="password">
+
+        <button type="submit" class="btn btn-success">Log In</button>
+        <div class="link">
+        <a href="">Register as new</a>
+        </div>
+    </form>
+</body>
+</html>
