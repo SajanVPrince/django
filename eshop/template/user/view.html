@@ -16,6 +16,22 @@
         a{
             text-decoration: none;
         }
+        .p1{
+          color: gray;
+          text-decoration: line-through;
+        }
+        .p2{
+          color: green;
+        }
+        h6{
+          color: rgb(83, 82, 82);
+        }
+        h5{
+          color: rgb(122, 122, 122);
+        }
+        .b1{
+          color: rgb(122, 1, 1);
+        }
     </style>
 </head>
 <body>
@@ -31,19 +47,40 @@
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="shp_logout">Log out</a>
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../shp_logout">Log out</a>
               </li>    
             </ul>
           </div>
         </div>
       </nav>
-      <div class="container">
+      <div class="container mt-3">
         <div class="row">
             <div class="col-lg-5">
             <img src="{{data.img.url}}" alt="" style="width: 100%;height: 500px;">
+            <a href="../add_to_cart/{{data.pk}}" class="btn btn-warning" style="margin-left: 100px; margin-top: 20px;">Add To cart</a>
+            <a href="" class="btn btn-danger" style="margin-left: 30px; margin-top: 20px;">Buy Now</a>
             </div>
-            <div class="col-lg-7">
-                details
+            <div class="col-lg-7 mt-5">
+                <h5>Shirts</h5>
+                <h3>{{data.name}}</h3>
+                <h6>{{data.dis}}</h6>
+                <div class="row">
+                  <div class="col-lg-1">
+                    <h3>{{data.ofr_price}}</h3>
+                  </div>
+                  <div class="col-lg-1">
+                    <p class="p1"><b>{{data.price}}</b></p>
+                  </div>
+                </div>
+                <p class="p2">58,785 ratings and 2,555 reviews</p>
+                <br>
+                <p><b>Available offers</b></p>
+                <p><b class="b1">Bank Offer</b> 5% Unlimited Cashback on Flikart Axs Bank Credit Card</p>
+                <p><b class="b1">Bank Offer</b> Flat ₹1,200 off on HFC Bank Credit Card EMI Txns on 6 and 9 months tenure, Min. Txn Value: ₹15,000</p>
+                <p><b class="b1">Bank Offer</b>Flat ₹1,500 off on HFC Bank Credit Card EMI Txns on 12 months tenure, Min. Txn Value: ₹15,000</p>
             </div>
         </div>
       </div>

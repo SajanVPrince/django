@@ -18,5 +18,9 @@ urlpatterns = [
     path('register',views.register),
     path('user_home',views.user_home),
     path('view_prod/<pid>',views.view_prod),
+    path('add_to_cart/<pid>',views.add_to_cart),
+    path('view_cart',views.view_cart),
+
+
 
 ]
