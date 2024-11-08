@@ -31,7 +31,11 @@ def main_logout(req):
     return redirect(bk_login)
 
 def seller_home(req):
-    return render(req,'seller/home.html')
+    if 'book' in req.session:
+        data=Books.objects.all()
+        return render(req,'seller/home.html',{'book':data})
+    else:
+        return redirect(bk_login)
 
 def add_bk(req):
     if 'book' in req.session:
@@ -43,10 +47,11 @@ def add_bk(req):
             ofr_price=req.POST['ofr_price']
             img=req.FILES['img']
             bk_dis=req.POST['bk_dis']
-            data=Books.objects.create(bk_id=bk_id,name=bk_name,price=bk_price,ofr_price=ofr_price,img=img,dis=bk_dis)
+            data=Books.objects.create(bk_id=bk_id,name=bk_name,ath_name=ath_name,price=bk_price,ofr_price=ofr_price,img=img,dis=bk_dis)
             data.save()
             return redirect(add_bk)
         else:
             return render(req,'seller/addbook.html')
     else:
         return redirect(bk_login)
+        
