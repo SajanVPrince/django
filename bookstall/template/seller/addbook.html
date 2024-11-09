@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="javascript:void(0)">Books</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -32,6 +32,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="add_bk">Add Books</a>
               </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Type</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Novel</a></li>
+                  <li><a class="dropdown-item" href="#">Short Stories</a></li>
+                  <li><a class="dropdown-item" href="#">Sci-Fi</a></li>
+                  <li><a class="dropdown-item" href="#">Autobiography</a></li>
+                  <li><a class="dropdown-item" href="#">Others</a></li>
+                </ul>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="main_logout">logout</a>
               </li>
@@ -43,7 +53,7 @@
           </div>
         </div>
       </nav>
-    <div class="form-container">
+    <div class="form-container" style="margin-top: 80px;">
     <div>
     <h4>Add Books</h4><br>
     <form action="" method="post" enctype="multipart/form-data">
@@ -59,6 +69,17 @@
           <div class="mb-2">
             <label for="prd_name" class="form-label">Author Name:</label>
             <input type="text" class="form-control" placeholder="Enter Product name" name="ath_name">
+          </div>
+          <div class="mb-2">
+            <label for="prd_name" class="form-label">Genres:</label>
+            <select name="bk_genres" style="width: 100%;">
+              <option value="volvo">Novel</option>
+              <option value="saab">Short stories</option>
+              <option value="mercedes">Sci-Fi</option>
+              <option value="audi">Autobiography</option>
+              <option value="audi">Fantacy</option>
+              <option value="audi">Others</option>
+            </select>
           </div>
           <div class="mb-2">
             <label for="price" class="form-label">Price:</label>

@@ -10,6 +10,10 @@ urlpatterns = [
 
     path('sellerhome',views.seller_home),
     path('add_bk',views.add_bk),
+    path('edit_bk/<pid>',views.edit_bk),
+    path('dlt_bk/<pid>',views.dlt_bk),
+
+
 
 
 
