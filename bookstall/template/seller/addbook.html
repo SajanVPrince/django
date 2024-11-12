@@ -60,30 +60,30 @@
       {% csrf_token %}
         <div class="mb-2 mt-2">
             <label for="prod_id" class="form-label">Book ID:</label>
-            <input type="text" class="form-control" placeholder="Enter Product Id" name="bk_id">
+            <input type="text" class="form-control" placeholder="Enter Product Id" name="bk_id" required>
           </div>
           <div class="mb-2">
             <label for="prd_name" class="form-label">Book Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Product name" name="bk_name">
+            <input type="text" class="form-control" placeholder="Enter Product name" name="bk_name" required>
           </div>
           <div class="mb-2">
             <label for="prd_name" class="form-label">Author Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Product name" name="ath_name">
+            <input type="text" class="form-control" placeholder="Enter Product name" name="ath_name" required>
           </div>
           <div class="mb-2">
             <label for="prd_name" class="form-label">Genres:</label>
             <select name="bk_genres" style="width: 100%;">
-              <option value="volvo">Novel</option>
-              <option value="saab">Short stories</option>
-              <option value="mercedes">Sci-Fi</option>
-              <option value="audi">Autobiography</option>
-              <option value="audi">Fantacy</option>
-              <option value="audi">Others</option>
+              <option value="novel">Novel</option>
+              <option value="Short">Short stories</option>
+              <option value="scifi">Sci-Fi</option>
+              <option value="auto">Autobiography</option>
+              <option value="fantacy">Fantacy</option>
+              <option value="others">Others</option>
             </select>
           </div>
           <div class="mb-2">
             <label for="price" class="form-label">Price:</label>
-            <input type="number" class="form-control" placeholder="Enter Product price" name="bk_price">
+            <input type="number" class="form-control" placeholder="Enter Product price" name="bk_price" required>
           </div>
           <div class="mb-2">
             <label for="ofrprice" class="form-label">Offer Price:</label>
@@ -91,11 +91,11 @@
           </div>
           <div class="mb-2">
             <label for="img" class="form-label">Image:</label>
-            <input type="file" class="form-control" name="img">
+            <input type="file" class="form-control" name="img" required>
           </div>
           <div class="mb-2">
             <label for="dis" class="form-label">Discription:</label>
-            <input type="text" class="form-control" placeholder="Enter Product details" name="bk_dis">
+            <input type="text" class="form-control" placeholder="Enter Product details" name="bk_dis" required>
           </div>
           <div class="form-check mb-2">
           </div>
