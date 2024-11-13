@@ -28,6 +28,13 @@ def shp_login(req):
     else:
         return render(req,'login.html')
 
+def shp_logout(req):
+    req.session.flush()          #delete session
+    logout(req)
+    return redirect(shp_login)
+
+#--------------------ADMIN--------------
+
 def shp_home(req):
     if 'eshop' in req.session:
         data=Product.objects.all()  #can use slicing here
@@ -35,10 +42,6 @@ def shp_home(req):
     else:
         return redirect(shp_login)
 
-def shp_logout(req):
-    req.session.flush()          #delete session
-    logout(req)
-    return redirect(shp_login)
 
 def add_prod(req):
     if 'eshop' in req.session:
@@ -87,6 +90,13 @@ def dlt_prd(req,pid):
     os.remove('media/'+og_path)
     data.delete()
     return redirect(shp_home)
+
+def booking(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/bookings.html',{'buy':buy})
+
+
+# -----------------------------user---------------------------
 
 def register(req):
     if req.method=='POST':
@@ -151,6 +161,7 @@ def usr_buy(req,pid):
     buy.save()
     return redirect(user_home)
 
-
-
-    
+def usr_booking(req):
+    user=User.objects.get(username=req.session['user'])
+    buy=Buy.objects.filter(user=user)[::-1]
+    return render(req,'user/booking.html',{'buy':buy})
