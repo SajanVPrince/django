@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
 from django.contrib.auth.models import *
 from .models import *
 
@@ -22,7 +21,6 @@ def m_login(req):
                 req.session['user']=uname
                 return redirect(user_home)
         else:
-            messages.warning(req,"please check your username or password")
             return render(req,'login.html')
     
     else:
@@ -49,7 +47,6 @@ def register(req):
             data.save()
             return redirect(m_login)
         except:
-            messages.warning(req,"email already exists enter a new email id")
             return render(req,'register.html')
     else:
         return render(req,'register.html')
@@ -64,28 +61,27 @@ def user_home(req):
         return redirect(m_login)
       
 
-def img_upd(req):
+def file_upd(req):
     if 'user' in req.session:
         if req.method=='POST':
-            img=req.FILES['img']
-            user=User.objects.get(username=req.session['user'])
-            data=Img.objects.create(img=img,user=user)
-            data.save()
-            return redirect(user_home)
+            file=req.FILES['file']
+            nm_img=file.name
+            ex_img=nm_img.split('.')[-1]
+            print(ex_img)
+            if ex_img in ['jpg','jpeg']:
+                user=User.objects.get(username=req.session['user'])
+                data=Img.objects.create(img=file,user=user)
+                data.save()
+                return redirect(user_home)
+            elif ex_img in['mp4']:
+                user=User.objects.get(username=req.session['user'])
+                data=Vdo.objects.create(vid=file,user=user)
+                data.save()
+                return redirect(user_home)
+            else:
+                return redirect(user_home)
         else:
-            return render(req,'user/image.html')
+            return render(req,'user/file.html')
     else:
         return redirect(m_login)
     
-def vid_upd(req):
-    if 'user' in req.session:
-        if req.method=='POST':
-            vid=req.FILES['vid']
-            user=User.objects.get(username=req.session['user'])
-            data=Vdo.objects.create(vid=vid,user=user)
-            data.save()
-            return redirect(user_home)
-        else:
-            return render(req,'user/video.html')
-    else:
-        return redirect(m_login)

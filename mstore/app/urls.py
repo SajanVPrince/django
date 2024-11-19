@@ -13,8 +13,8 @@ urlpatterns = [
 # ------------user---------
 
     path('user_home',views.user_home),
-    path('img_upd',views.img_upd),
-    path('vid_upd',views.vid_upd),
+    path('file_upd',views.file_upd),
+    # path('vid_upd',views.vid_upd),
 
 
 

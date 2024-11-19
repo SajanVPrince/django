@@ -24,29 +24,20 @@
         {% csrf_token %}
         <div class="mb-2 mt-2">
             <label for="name" class="form-label">Name:</label>
-            <input type="text" class="form-control" placeholder="Enter your name" name="name">
+            <input type="text" class="form-control" placeholder="Enter your name" name="name" required>
           </div>
           <div class="mb-2">
             <label for="email" class="form-label">email:</label>
-            <input type="email" class="form-control" placeholder="Enter your email" name="email">
+            <input type="email" class="form-control" placeholder="Enter your email" name="email" required>
           </div>
           <div class="mb-2">
             <label for="password" class="form-label">Password:</label>
-            <input type="password" class="form-control" placeholder="Enter Password" name="password">
+            <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
           </div>
           <div>
             <!-- <a type="submit" href="login.html" class="btn btn-danger">Already a user?</a> -->
             <button type="submit" class="btn btn-primary">Register</button>
           </div>
-
-          {% if messages %}
-          {% for message in messages %}
-          <div class="alert alert-warning alert-dismissible fade show">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            {{message}}
-          </div>
-          {% endfor %}
-          {% endif %}
 
     </form>
 </div>
