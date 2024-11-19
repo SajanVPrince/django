@@ -56,8 +56,9 @@ def register(req):
 
 def user_home(req):
     if 'user' in req.session:
-        data=Img.objects.all()
-        data1=Vdo.objects.all()
+        user=User.objects.get(username=req.session['user'])
+        data=Img.objects.filter(user=user)
+        data1=Vdo.objects.filter(user=user)
         return render(req,'user/home.html',{'data':data,'data1':data1})
     else:
         return redirect(m_login)
