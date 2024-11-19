@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from .models import *
+
 # Create your views here.
 def usr_form(req):
     if req.method=='POST':
@@ -15,3 +16,13 @@ def usr_form(req):
             return redirect(usr_form)
     form=user_form()
     return render(req,'form1.html',{'form':form})
+
+def modelform(req):
+    if req.method=='POST':
+        form1=model_form(req.POST)
+        if form1.is_valid():
+            form1.save()
+        return redirect(modelform)
+    else:
+        form=model_form()
+        return render(req,'model.html',{'form':form})
