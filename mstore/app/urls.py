@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('user_home',views.user_home),
     path('file_upd',views.file_upd),
+    path('dlt_file/<fid>',views.dlt_file),
+
     # path('vid_upd',views.vid_upd),
 
 
