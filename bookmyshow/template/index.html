@@ -127,32 +127,14 @@
 <!-- Movies -->
 <div class="container container-fluid mt-5 my-5" style="margin-left: 100px;">
   <b id="text" class="text-black" style="font-size: 1.9vw;">Recommented movies</b>
-  <a href="" style="padding-left: 780px;text-decoration: none;color: red;">See All></a>
+  <!-- <a href="" style="padding-left: 780px;text-decoration: none;color: red;">See All></a> -->
     <div class="row ">
+      {% for i in data %}
       <div class="col-md-2">
-        <a href="movie_details"><img src="{% static 'img/mv2.jpg' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>A.R.M</b> <br> U/A <br> Malayalam</figcaption></a>
+        <a href="movie_details/{{i.pk}}"><img src="{{i.img.url}}" class="rounded img-fluid m-2" width="100%" alt=""></a>
+        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>{{i.name}}</b> <br> {{i.certi}} <br> {{i.lang}}</figcaption></a>
       </div>
-      <div class="col-md-2" >
-        <a href="#"><img src="{% static 'img/mv1.jpg' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>Kishkindha Kandam</b> <br> U/A <br> Malayalam</figcaption></a>
-      </div>
-      <div class="col-md-2">
-        <a href="#"><img src="{% static 'img/mv3.jpg' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>Vettaiyan</b> <br> U/A <br> Tamil</figcaption></a>
-      </div>
-      <div class="col-md-2">
-        <a href="#"><img src="{% static 'img/mv4.jpg' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>Martin</b> <br> U/A <br> Kannada</figcaption></a>
-      </div>
-      <div class="col-md-2">
-        <a href="#"><img src="{% static 'img/mv5.jpg' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>Bogainvilla</b> <br> U/A <br> Malayalam</figcaption></a>
-      </div>
-      <div class="col-md-2">
-        <a href="#"><img src="{% static 'img/mv6.avif' %}" class="rounded img-fluid m-2" width="100%" alt=""></a>
-        <a href="" style="text-decoration: none;color: black;"><figcaption style="padding-left: 30px;"><b>Oru Kattil Oru Muri</b> <br> U/A <br> Malayalam</figcaption></a>
-      </div>
+      {% endfor %}
     </div> 
 </div>
  <!-- movies end -->
@@ -180,58 +162,6 @@
       </div>
   </div>
 </div>
-<!-- <div id="premi" class="container-fluid my-5 d-flex flex-column ">
-  <img id="pre" class="img-fluid" src="img/Prem.png" alt="">
- 
-
-  <div class="row justify-content-center">
-      <div class="col-md-2">
-          <div class="movie-card">
-              <img src="img/pr1.avif' %}" alt="">
-              <div id="mov" class="movie-details">
-                  <h5 class="movie-title">Sidone in japan</h5>
-                  <p id="mov" class="movie-genre">French</p>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-2">
-          <div class="movie-card">
-              <img src="img/pr2.avif' %}" alt="">
-              <div  class="movie-details">
-                  <h5 id="mov" class="movie-title">The Good The Bad The Weird</h5>
-                  <p id="mov" class="movie-genre">English</p>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-2">
-          <div class="movie-card">
-              <img src="img/pr3.avif' %}" alt="">
-              <div class="movie-details">
-                  <h5 id="mov" class="movie-title">Bang Bang!</h5>
-                  <p id="mov" class="movie-genre">Hindi</p>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-2">
-          <div class="movie-card">
-              <img src="img/pr4.avif' %}" alt="">
-              <div class="movie-details">
-                  <h5 id="mov" class="movie-title">The Layoff Party</h5>
-                  <p id="mov" class="movie-genre">Hindi</p>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-2">
-          <div class="movie-card">
-              <img src="img/pr5.avif' %}" alt="">
-              <div class="movie-details">
-                  <h5 id="mov" class="movie-title">Shyamchi Aai</h5>
-                  <p id="mov" class="movie-genre">Marathi</p>
-              </div>
-          </div>
-      </div>
-  </div>
-</div> -->
 
 <!-- Footer start -->
 

@@ -98,10 +98,12 @@
 
 <div id="main1" class="image-fluid d-flex ">
     <div id="main2" class=" row align-items-center">
-        Movie Card 1
+        {% for i in data1 %}
+      Movie Card 1
+      <!-- <img src="{{i.backimg.url}}" alt=""> -->
         <div class="col-md-4">
             <div class="movie-card">
-                <img src="{% static 'img/mv2.jpg' %}" alt="A.R.M" style="height: 400px;">
+                <img src="{{i.img.url}}" alt="A.R.M" style="height: 400px;">
                 <div class="movie-details">
                     <div class="movie-stats" style="background-color: #000000">
                         <span> In Cinemas</span>
@@ -112,7 +114,7 @@
         </div>
         <div id="main3" class="col-md-8">
             <div class="movieinfo">
-                <div class="movietitle" style="margin-left: 320px;"><h1>A.R.M</h1></div>
+                <div class="movietitle" style="margin-left: 320px;"><h1>{{i.name}}</h1></div>
                 <div id="rating" class="d-flex align-items-center" style="margin-left: 320px; width: 400px;">
                   <span id="star" class="star text-orange">&nbsp;&nbsp; ★</span>
                   <span class="score mx-2"><b>8.7/10</b></span>
@@ -120,10 +122,10 @@
                   <button id="ratebtn" class="btn btn-outline-secondary rate-btn ms-auto"><b>Rate now</b>&nbsp;&nbsp;</button>
               </div>
                 <div class="lang row gap-4 mt-3" style="margin-left: 320px;width: 500px;">
-                    <div id="lang" class="col-2"><b>2D,3D</b></div>
-                    <div id="lang" class="col-9"><span class="language">Malayalam, Hindi, Tamil, Kannada, Telugu</span></div>
+                    <div id="lang" class="col-2"><b>{{i.dim}}</b></div>
+                    <div id="lang" class="col-9"><span class="language">{{i.lang}}</span></div>
                 </div>
-                <div class="duration mt-3"style="margin-left: 320px;width: 500px;"><b>2h 23m • Action,Adventure, Drama,Period • UA • 12 Sep, 2024</b></div></div>
+                <div class="duration mt-3"style="margin-left: 320px;width: 500px;"><b>{{i.duration}} • {{i.genres}} • {{i.certi}} • {{i.date}}</b></div></div>
                 
 
                 <a id="book" class="mt-5" href="#"style="margin-left: 320px;width: 500px;"><b>Book tickets</b></a>
@@ -137,10 +139,11 @@
 <!-- ------------------------------------ -->
 <div class="sample container p-3">
 <h3><b>About the movie</b></h3>
-<span>Set in Northern Kerala across the years 1900, 1950, and 1990, this epic tale follows three generations of heroes Maniyan,</span>
-<span>Kunjikelu, and Ajayan as they strive to protect the land's most vital treasure.</span>
+<span>{{i.about}}</span>
 </div>
 <hr class="mx-auto d-block" width="71%">
+
+{% endfor %}
 
 
 <!-- ----cast----- -->
