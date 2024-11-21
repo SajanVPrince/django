@@ -98,12 +98,11 @@
 
 <div id="main1" class="image-fluid d-flex ">
     <div id="main2" class=" row align-items-center">
-        {% for i in data1 %}
       Movie Card 1
       <!-- <img src="{{i.backimg.url}}" alt=""> -->
         <div class="col-md-4">
             <div class="movie-card">
-                <img src="{{i.img.url}}" alt="A.R.M" style="height: 400px;">
+                <img src="{{data1.img.url}}" alt="A.R.M" style="height: 400px;">
                 <div class="movie-details">
                     <div class="movie-stats" style="background-color: #000000">
                         <span> In Cinemas</span>
@@ -114,7 +113,7 @@
         </div>
         <div id="main3" class="col-md-8">
             <div class="movieinfo">
-                <div class="movietitle" style="margin-left: 320px;"><h1>{{i.name}}</h1></div>
+                <div class="movietitle" style="margin-left: 320px;"><h1>{{data1.name}}</h1></div>
                 <div id="rating" class="d-flex align-items-center" style="margin-left: 320px; width: 400px;">
                   <span id="star" class="star text-orange">&nbsp;&nbsp; ★</span>
                   <span class="score mx-2"><b>8.7/10</b></span>
@@ -122,10 +121,10 @@
                   <button id="ratebtn" class="btn btn-outline-secondary rate-btn ms-auto"><b>Rate now</b>&nbsp;&nbsp;</button>
               </div>
                 <div class="lang row gap-4 mt-3" style="margin-left: 320px;width: 500px;">
-                    <div id="lang" class="col-2"><b>{{i.dim}}</b></div>
-                    <div id="lang" class="col-9"><span class="language">{{i.lang}}</span></div>
+                    <div id="lang" class="col-2"><b>{{data1.dim}}</b></div>
+                    <div id="lang" class="col-9"><span class="language">{{data1.lang}}</span></div>
                 </div>
-                <div class="duration mt-3"style="margin-left: 320px;width: 500px;"><b>{{i.duration}} • {{i.genres}} • {{i.certi}} • {{i.date}}</b></div></div>
+                <div class="duration mt-3"style="margin-left: 320px;width: 500px;"><b>{{data1.duration}} • {{data1.genres}} • {{data1.certi}} • {{data1.date}}</b></div></div>
                 
 
                 <a id="book" class="mt-5" href="#"style="margin-left: 320px;width: 500px;"><b>Book tickets</b></a>
@@ -139,11 +138,9 @@
 <!-- ------------------------------------ -->
 <div class="sample container p-3">
 <h3><b>About the movie</b></h3>
-<span>{{i.about}}</span>
+<span>{{data1.about}}</span>
 </div>
 <hr class="mx-auto d-block" width="71%">
-
-{% endfor %}
 
 
 <!-- ----cast----- -->
