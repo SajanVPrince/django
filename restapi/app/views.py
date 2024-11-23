@@ -39,11 +39,11 @@ def fun4(req,d):
     except student.DoesNotExist:
         return HttpResponse('invalid')
     if req.method=='GET':
-        s=model_serializer(demo)
+        s=model_ser(demo)
         return JsonResponse(s.data)
     elif req.method=='PUT':
         d=JSONParser().parse(req)
-        s=model_serializer(demo,data=d)
+        s=model_ser(demo,data=d)
         if s.is_valid():
             s.save()
             return JsonResponse(s.data)
@@ -57,27 +57,27 @@ def fun4(req,d):
 def fun5(req):
     if req.method=='GET':
         d=student.objects.all()
-        s=model_serializer(d,many=True)
+        s=model_ser(d,many=True)
         return Response(s.data)
     elif req.method=='POST':
-        s=model_serializer(data=req.data)
+        s=model_ser(data=req.data)
         if s.is_valid():
             s.save()
             return JsonResponse(s.data,status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(s.errors,status=status.HTTP_400_BAD_REQUEST)
         
-@api_view(['GET','PuT','DELETE'])
+@api_view(['GET','PUT','DELETE'])
 def fun6(req,d):
     try:
         demo=student.objects.get(pk=d)
     except student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if req.method=='GET':
-        s=model_serializer(demo)
+        s=model_ser(demo)
         return Response(s.data)
     elif req.method=='PUT':
-        s=model_serializer(demo,data=req.data)
+        s=model_ser(demo,data=req.data)
         if s.is_valid():
             s.save()
             return Response(s.data)
@@ -90,10 +90,10 @@ def fun6(req,d):
 class fun7(APIView):
     def get(self,req):
         demo=student.objects.all()
-        s=model_serializer(demo,many=True)
+        s=model_ser(demo,many=True)
         return Response(s.data)
     def post(self,req):
-        s=model_serializer(data=req.data)
+        s=model_ser(data=req.data)
         if s.is_valid():
             s.save()
             return JsonResponse(s.data,status=status.HTTP_201_CREATED)
@@ -104,14 +104,14 @@ class fun8(APIView):
     def get(self,req,d):
         try:
             demo=student.objects.get(pk=d)
-            s=model_serializer(demo)
+            s=model_ser(demo)
             return Response(s.data)
         except student.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
     def put(self,req,d):
         try:
             demo=student.objects.get(pk=d)
-            s=model_serializer(demo,data=req.data)
+            s=model_ser(demo,data=req.data)
             if s.is_valid():
                 s.save()
                 return Response(s.data)
@@ -127,16 +127,16 @@ class fun8(APIView):
         except student.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
-class genericapiview(generics.GenericAPIView,mixins.ListModelMixins,mixins.CreateModelMixin):
-    serializer_class=model_serializer
+class genericapiview(generics.GenericAPIView,mixins.ListModelMixin,mixins.CreateModelMixin):
+    serializer_class=model_ser
     queryset=student.objects.all()
     def get(self,req):
         return self.list(req)
     def post(self,req):
         return self.create(req)
     
-class update(generics.GenericAPIView,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
-    serializer_class=model_serializer
+class update(generics.GenericAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
+    serializer_class=model_ser
     queryset=student.objects.all()
     lookup_field='id'
     def get(self,req,id=None):
