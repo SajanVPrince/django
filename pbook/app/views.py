@@ -59,8 +59,9 @@ def register(req):
 def home(req):
     if 'user' in req.session:
         user = User.objects.get(username=req.session['user'])
+        name=user.first_name
         data = Phone.objects.filter(user=user).order_by('name')
-        return render(req, 'home.html', {'data': data})
+        return render(req, 'home.html', {'data': data,'name':name})
     else:
         return redirect('usr_login')
 
