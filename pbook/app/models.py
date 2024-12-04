@@ -9,4 +9,3 @@ class Phone(models.Model):
     place=models.TextField()
     phone=models.TextField()
     whatsapp=models.TextField()
-    

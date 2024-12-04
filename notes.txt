@@ -200,3 +200,18 @@ req.session.flush()
 checking procedure in other functions
 
 if 'key_word' in req.session:
+
+
+
+-------------------------------------------------------------------------
+
+Python anywhere hosting
+
+web-->choose_backend_framework-->choose_version-->project_name
+
+
+--> it works in linux from pythonanywhere bashconsolses
+--> install all item installed in project (django,flask,request etc...)
+change sourse code to cuurent project path
+
+reload the page everytime while making change

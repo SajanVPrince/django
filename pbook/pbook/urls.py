@@ -25,8 +25,4 @@ urlpatterns = [
     path('home',views.home),
     path('add',views.add),
     path('register',views.register),
-
-
-
-
 ]
